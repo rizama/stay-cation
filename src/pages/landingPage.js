@@ -5,6 +5,7 @@ import landingPage from 'json/landingPage.json';
 import Hero from 'parts/Hero';
 import MostPicked from 'parts/MostPicked';
 import Categories from 'parts/Categories';
+import Testimony from 'parts/Testimony';
 
 export default function LandingPage(props) {
     const ref = useRef(null)
@@ -15,6 +16,7 @@ export default function LandingPage(props) {
             <Hero refMostPicked={ref} data={landingPage.hero}></Hero>
             <MostPicked refMostPicked={ref} data={landingPage.mostPicked} />
             <Categories data={landingPage.categories}/>
+            <Testimony/>
         </>
     )
 }

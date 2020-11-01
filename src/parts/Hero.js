@@ -3,7 +3,6 @@ import React from 'react'
 // images
 import ImageHero from 'assets/images/img-hero.jpg';
 import ImageHeroFrame from 'assets/images/img-hero-frame.jpg';
-import IconCalendar from 'assets/icons/icon-calendar.svg'
 import IconCities from 'assets/icons/icon-cities.svg'
 import IconTraveler from 'assets/icons/icon-traveler.svg'
 import IconTreasure from 'assets/icons/icon-treasure.svg'
