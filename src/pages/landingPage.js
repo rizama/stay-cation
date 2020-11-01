@@ -16,7 +16,7 @@ export default function LandingPage(props) {
             <Hero refMostPicked={ref} data={landingPage.hero}></Hero>
             <MostPicked refMostPicked={ref} data={landingPage.mostPicked} />
             <Categories data={landingPage.categories}/>
-            <Testimony/>
+            <Testimony data={landingPage.testimonial}/>
         </>
     )
 }

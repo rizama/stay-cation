@@ -31,7 +31,7 @@ function Hero(props) {
                     <p className="mb-3 font-weight-light text-gray-500 w-75" style={{lineHeight: "170%"}}>
                         We provide what you need to enjoy your holiday with family. Time to make another  memorable moments.
                     </p>
-                    <Button className="btn px-5" hasShadow isPrimary onClick={showMostPicked}>Show Me</Button>
+                    <Button className="btn px-5" hasShadow isPrimary onClick={showMostPicked} style={{padding: 10}}>Show Me</Button>
 
                     <div className="row" style={{marginTop: "80px"}}>
                         <div className="col-auto" style={{ marginRight: 35 }}>
