@@ -90,7 +90,8 @@ header {
 
 .card {
 	height: 100%;
-
+	border-radius: 15px;
+	border: none;
 	.tag {
 		z-index: 3;
 		font-size: 0.875rem;
@@ -101,7 +102,7 @@ header {
 		right: 0;
 		color: $white;
 		min-height: 30px;
-		border-radius: 0 15px;
+		border-radius: 0 15px 0 15px;
 		span {
 			font-weight: 300;
 		}
