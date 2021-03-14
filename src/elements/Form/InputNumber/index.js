@@ -22,7 +22,7 @@ export default function Number(props) {
         if (isNumeric && +value <= max && +value >= min) {
             props.onChange({
                 target: {
-                    name,
+                    name: name,
                     value: +value
                 }
             });
