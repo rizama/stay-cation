@@ -17,7 +17,7 @@ export default function PageDetailTitle({ data, breadcrumb }) {
                             {data.name}
                         </h1>
                         <span className="text-gray-400">
-                            {data.city}, {data.dountry}
+                            {data.city}, {data.country}
                         </span>
                     </div>
                     <div className="col"></div>
