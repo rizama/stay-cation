@@ -11,8 +11,8 @@ function MostPicked(props) {
                     {
                         props.data.map((item, index) => {
                             return (
-                                <Fade bottom delay={500 * index}>
-                                    <div className={`item column-4 ${index === 0 ? "row-2" : "row-1"}`} key={item._id}>
+                                <Fade bottom delay={500 * index} key={`mostpicked-${index}`}>
+                                    <div className={`item column-4 ${index === 0 ? "row-2" : "row-1"}`} key={`mostpicked-${index}`}>
                                         <div className="card card-featured">
                                             <div className="tag">
                                                 ${item.price}
@@ -32,13 +32,13 @@ function MostPicked(props) {
                                         </div>
                                     </div>
                                 </Fade>
-                            )
+                            );
                         })
                     }
                 </div>
             </section>
         </Fade>
-    )
+    );
 }
 
-export default MostPicked
+export default MostPicked;
