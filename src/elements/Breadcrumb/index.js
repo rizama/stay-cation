@@ -20,7 +20,7 @@ export default function Breadcrumb(props) {
                             {index === props.data.length - 1 ? (
                                 item.pageTitle
                             ) : (
-                                <Button type="link" href={item.pageHref}>
+                                <Button type="link" href={item.pageRef}>
                                     {item.pageTitle}
                                 </Button>
                             )}
