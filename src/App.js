@@ -2,7 +2,7 @@ import React from 'react';
 import 'assets/scss/styles.scss';
 
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import LandingPage from 'pages/LandingPage';
+import LandingPage from 'pages/PageLanding';
 import DetailPage from 'pages/DetailPage';
 // import ExampleInputDate from 'pages/ExampleInputDate';
 // import ExampleBreadcrumb from 'pages/ExampleBreadcrumb';
