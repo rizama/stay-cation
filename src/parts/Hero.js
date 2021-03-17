@@ -1,12 +1,9 @@
-import React from 'react'
+import React from 'react';
 import Fade from 'react-reveal/Fade';
 
 // images
 import ImageHero from 'assets/images/img-hero.jpg';
 import ImageHeroFrame from 'assets/images/img-hero-frame.jpg';
-import IconCities from 'assets/icons/icon-cities.svg';
-import IconTraveler from 'assets/icons/icon-traveler.svg';
-import IconTreasure from 'assets/icons/icon-treasure.svg';
 
 import Button from 'elements/Button';
 
@@ -14,11 +11,18 @@ import numberFormat from "utilities/FormatNumber";
 
 function Hero(props) {
 
-    const showMostPicked = () => {
+    // const showMostPicked = () => {
+    //     window.scrollTo({
+    //         top: props.refMostPicked.current.offsetTop - 30,
+    //         behavior: "smooth"
+    //     })
+    // }
+
+    function showMostPicked() {
         window.scrollTo({
             top: props.refMostPicked.current.offsetTop - 30,
-            behavior: "smooth"
-        })
+            behavior: "smooth",
+        });
     }
 
     return (
@@ -37,21 +41,21 @@ function Hero(props) {
 
                         <div className="row" style={{ marginTop: "80px" }}>
                             <div className="col-auto" style={{ marginRight: 35 }}>
-                                <img src={IconTraveler} alt={`${props.data.travelers} Travelers`} width="36" height="36" />
+                                <img src="/images/icon-traveler.svg" alt={`${props.data.travelers} Travelers`} width="36" height="36" />
                                 <h6 className="mt-3">
                                     {numberFormat(props.data.travelers)} <span className="text-gray-500 font-weight-light">Travelers</span>
                                 </h6>
                             </div>
 
                             <div className="col-auto" style={{ marginRight: 35 }}>
-                                <img src={IconTreasure} alt={`${props.data.treasures} Treasures`} width="36" height="36" />
+                                <img src="/images/icon-treasure.svg" alt={`${props.data.treasures} Treasures`} width="36" height="36" />
                                 <h6 className="mt-3">
                                     {numberFormat(props.data.treasures)} <span className="text-gray-500 font-weight-light">Treasures</span>
                                 </h6>
                             </div>
 
                             <div className="col-auto">
-                                <img src={IconCities} alt={`${props.data.cities} Cities`} width="36" height="36" />
+                                <img src="/images/icon-cities.svg" alt={`${props.data.cities} Cities`} width="36" height="36" />
                                 <h6 className="mt-3">
                                     {numberFormat(props.data.cities)} <span className="text-gray-500 font-weight-light">Cities</span>
                                 </h6>
@@ -68,8 +72,8 @@ function Hero(props) {
                 </div>
             </section>
         </Fade>
-    )
+    );
 }
 
-export default Hero
+export default Hero;
 
