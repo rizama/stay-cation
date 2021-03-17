@@ -21,7 +21,7 @@ export default class BookingForm extends Component {
 
     updateData = (e) => {
         this.setState({
-            ...this.state,
+            ...this.state,  
             data: {
                 ...this.state.data,
                 [e.target.name]: e.target.value,
