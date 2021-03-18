@@ -90,9 +90,13 @@ header {
 }
 
 .card {
-	height: 100%;
+	&.bordered {
+		border: 1px solid $gray-200;
+	}
+
 	border-radius: 15px;
-	border: none;
+	// border: none;
+
 	.tag {
 		z-index: 3;
 		font-size: 0.875rem;
