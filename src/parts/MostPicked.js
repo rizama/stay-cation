@@ -4,8 +4,8 @@ import Fade from 'react-reveal/Fade';
 
 function MostPicked(props) {
     return (
-        <Fade bottom>
-            <section className="container" ref={props.refMostPicked}>
+        <section className="container" ref={props.refMostPicked}>
+            <Fade bottom>
                 <h4 className="mb-3">Most Picked</h4>
                 <div className="container-grid">
                     {
@@ -36,8 +36,8 @@ function MostPicked(props) {
                         })
                     }
                 </div>
-            </section>
-        </Fade>
+            </Fade>
+        </section>
     );
 }
 
