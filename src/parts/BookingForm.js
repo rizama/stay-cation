@@ -80,8 +80,8 @@ export default class BookingForm extends Component {
                 <InputNumber
                     max={30}
                     suffix={" night"}
-                    onChance={this.updateData}
                     isSuffixPlural
+                    onChange={this.updateData}
                     name="duration"
                     value={data.duration}
                 />
