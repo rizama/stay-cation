@@ -5,10 +5,8 @@ import Button from 'elements/Button';
 import IconText from './IconText';
 
 export default function Header(props) {
-
-
     const getNavLinkClass = (path) => {
-        return props.location.pathname === path ? "active" : "";
+        return props.location?.pathname === path ? " active" : "";
     };
 
     if (props.isCenterd) {

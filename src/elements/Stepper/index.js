@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 
 import propTypes from "prop-types";
 
-export default function Stepper() {
+export default function Stepper(props) {
 
-    const { steps, initialStep } = this.props;
+    const { steps, initialStep } = props;
     const stepKeys = Object.keys(steps);
 
     const [CurrentStep, setCurrentStep] = useState(

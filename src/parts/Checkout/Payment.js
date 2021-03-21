@@ -1,12 +1,13 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Fade from 'react-reveal/Fade';
 
 import logoBca from 'assets/images/logo-bca.jpg';
 import logoMandiri from 'assets/images/logo-mandiri.jpg';
 
+import { InputFile, InputText } from 'elements/Form';
+
 function Payment(props) {
-    const { data, ItemDetails, checkout } = this.props;
+    const { data, ItemDetails, checkout } = props;
 
     const tax = 10;
     const subTotal = ItemDetails.price * checkout.duration;
@@ -84,10 +85,6 @@ function Payment(props) {
         </Fade>
     );
 }
-
-Payment.propTypes = {
-
-};
 
 export default Payment;
 

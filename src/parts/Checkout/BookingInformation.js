@@ -1,14 +1,13 @@
 import React from 'react';
-import propTypes from 'prop-types';
 import Fade from 'react-reveal/Fade';
 
 import { InputText } from 'elements/Form';
 
 function BookingInformation(props) {
-    const { data, ItemDetails, checkout } = this.props;
+    const { data, ItemDetails, checkout } = props;
 
     return (
-        <Fadev>
+        <Fade>
             <div className="container" style={{ marginBottom: 30 }}>
                 <div className="row justify-content-center align-items-center">
                     <div className="col-5 border-right py-5" style={{ paddingRight: 80 }}>
@@ -81,13 +80,9 @@ function BookingInformation(props) {
                     </div>
                 </div>
             </div>
-        </Fadev>
+        </Fade>
     );
 }
-
-BookingInformation.propTypes = {
-
-};
 
 export default BookingInformation;
 
