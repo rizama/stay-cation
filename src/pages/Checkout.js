@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Fade from 'react-reveal/Fade';
 
 import Header from "parts/Header";
 import Button from "elements/Button";
@@ -49,7 +50,7 @@ export default class Checkout extends Component {
                     <BookingInformation
                         data={data}
                         checkout={checkout}
-                        ItemDetails={page[checkout._id]}
+                        ItemDetails={ItemDetails}
                         onChange={this.onChange}
                     />
                 ),
@@ -60,7 +61,7 @@ export default class Checkout extends Component {
                 content: (
                     <Payment
                         data={data}
-                        ItemDetails={page[checkout._id]}
+                        ItemDetails={ItemDetails}
                         checkout={checkout}
                         onChange={this.onChange}
                     />
@@ -75,7 +76,7 @@ export default class Checkout extends Component {
         return (
             <>
                 <Header isCentered />
-                <Stepper steps={steps} initialStep="payment">
+                <Stepper steps={steps} initialStep="bookingInformation">
                     {(prevStep, nextStep, CurrentStep, steps) => (
                         <>
                             <Numbering
@@ -112,7 +113,7 @@ export default class Checkout extends Component {
                                         type="link"
                                         isBlock
                                         isLight
-                                        href={`/properties/${checkout._id}`}
+                                        href={`/properties/${ItemDetails.imageUrls[0]._id}`}
                                     >
                                         Cancel
                                     </Button>
