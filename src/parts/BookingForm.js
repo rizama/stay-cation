@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import propTypes from 'prop-types';
 
-import Button from "elements/Button";
-import { InputNumber, InputDate } from "elements/Form";
+import Button from 'elements/Button';
+import { InputNumber, InputDate } from 'elements/Form';
 
 export default class BookingForm extends Component {
     constructor(props) {
@@ -13,7 +13,7 @@ export default class BookingForm extends Component {
                 date: {
                     startDate: new Date(),
                     endDate: new Date(),
-                    key: "selection",
+                    key: 'selection',
                 },
             },
         };
@@ -62,14 +62,26 @@ export default class BookingForm extends Component {
         }
     }
 
+    startBooking = () => {
+        const { data } = this.state;
+        this.props.startBooking({
+            _id: this.props.itemDetails._id,
+            duration: data.duration,
+            date: {
+                startDate: data.date.startDate,
+                endDate: data.date.endDate,
+            },
+        });
+    };
+
     render() {
         const { data } = this.state;
         const { itemDetails, startBooking } = this.props;
         return (
-            <div className="card bordered" style={{ padding: "60px 80px" }}>
+            <div className="card bordered" style={{ padding: '60px 80px' }}>
                 <h4 className="mb-3">Start Booking</h4>
                 <h5 className="h2 text-teal mb-4">
-                    ${itemDetails.price}{" "}
+                    ${itemDetails.price}{' '}
                     <span className="text-gray-500 font-weight-light">
                         per {itemDetails.unit}
                     </span>
@@ -79,7 +91,7 @@ export default class BookingForm extends Component {
 
                 <InputNumber
                     max={30}
-                    suffix={" night"}
+                    suffix={' night'}
                     isSuffixPlural
                     onChange={this.updateData}
                     name="duration"
@@ -87,17 +99,21 @@ export default class BookingForm extends Component {
                 />
 
                 <label htmlFor="date">Pick a date</label>
-                <InputDate onChange={this.updateData} name="date" value={data.date} />
+                <InputDate
+                    onChange={this.updateData}
+                    name="date"
+                    value={data.date}
+                />
 
                 <h6
                     className="text-gray-500 font-weight-light"
                     style={{ marginBottom: 40 }}
                 >
-                    You will pay{" "}
+                    You will pay{' '}
                     <span className="text-gray-900">
                         ${itemDetails.price * data.duration} USD
-                    </span>{" "}
-                    per{" "}
+                    </span>{' '}
+                    per{' '}
                     <span className="text-gray-900">
                         {data.duration} {itemDetails.unit}
                     </span>
@@ -108,7 +124,7 @@ export default class BookingForm extends Component {
                     hasShadow
                     isPrimary
                     isBlock
-                    onClick={startBooking}
+                    onClick={this.startBooking}
                 >
                     Continue to Book
                 </Button>
@@ -116,7 +132,6 @@ export default class BookingForm extends Component {
         );
     }
 }
-
 
 BookingForm.propTypes = {
     itemDetails: propTypes.object,
