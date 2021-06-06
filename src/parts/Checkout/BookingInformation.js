@@ -4,8 +4,7 @@ import Fade from 'react-reveal/Fade';
 import { InputText } from 'elements/Form';
 
 function BookingInformation(props) {
-    const { data, ItemDetails, checkout } = props;
-
+    const { data, itemDetails, checkout } = props;
     return (
         <Fade>
             <div className="container" style={{ marginBottom: 30 }}>
@@ -16,24 +15,24 @@ function BookingInformation(props) {
                                 <figure className="img-wrapper" style={{ height: 270 }}>
                                     <img
                                         className="img-cover"
-                                        src={ItemDetails.imageUrls[0].url}
-                                        alt={ItemDetails.title}
+                                        src={`${process.env.REACT_APP_HOST}${itemDetails.imageId[0].imageUrl}`}
+                                        alt={itemDetails.title}
                                     />
                                 </figure>
                                 <div className="row align-items-center">
                                     <div className="col">
                                         <div className="meta-wrapper">
-                                            <h5>{ItemDetails.name}</h5>
+                                            <h5>{itemDetails.name}</h5>
                                             <span className="text-gray-500">
-                                                {ItemDetails.city}, {ItemDetails.country}
+                                                {itemDetails.city}, {itemDetails.country}
                                             </span>
                                         </div>
                                     </div>
                                     <div className="col-auto">
                                         <span>
-                                            ${+checkout.duration * ItemDetails.price} USD
+                                            ${+checkout.duration * itemDetails.price} USD
                                             <span className="text-gray-500"> per </span>
-                                            {checkout.duration} {ItemDetails.unit}
+                                            {checkout.duration} {itemDetails.unit}
                                             {+checkout.duration > 1 ? "s" : ""}
                                         </span>
                                     </div>

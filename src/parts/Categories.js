@@ -39,7 +39,7 @@ function Categories({ data }) {
                                                             ? `${process.env.REACT_APP_HOST}${item.imageId[0].imageUrl}`
                                                             : ''
                                                     }
-                                                    alt={item.name}
+                                                    alt={item.title}
                                                 />
                                             </figure>
                                             <div className="meta-wrapper">
@@ -49,7 +49,7 @@ function Categories({ data }) {
                                                     className="streched-link d-block text-gray-800"
                                                 >
                                                     <h5 className="h4">
-                                                        {item.name}
+                                                        {item.title}
                                                     </h5>
                                                 </Button>
                                                 <span className="text-gray-500">

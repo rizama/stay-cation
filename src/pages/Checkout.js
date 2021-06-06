@@ -3,9 +3,14 @@ import Fade from 'react-reveal/Fade';
 
 import { connect } from 'react-redux';
 
-import Header from "parts/Header";
-import Button from "elements/Button";
-import Stepper, { Numbering, Meta, MainContent, Controller } from 'elements/Stepper';
+import Header from 'parts/Header';
+import Button from 'elements/Button';
+import Stepper, {
+    Numbering,
+    Meta,
+    MainContent,
+    Controller,
+} from 'elements/Stepper';
 
 import BookingInformation from 'parts/Checkout/BookingInformation';
 import Payment from 'parts/Checkout/Payment';
@@ -16,13 +21,13 @@ import ItemDetails from 'json/itemDetails.json';
 class Checkout extends Component {
     state = {
         data: {
-            firstName: "",
-            lastName: "",
-            email: "",
-            phone: "",
-            proofPayment: "",
-            bankName: "",
-            bankHolder: "",
+            firstName: '',
+            lastName: '',
+            email: '',
+            phone: '',
+            proofPayment: '',
+            bankName: '',
+            bankHolder: '',
         },
     };
 
@@ -37,58 +42,65 @@ class Checkout extends Component {
 
     componentDidMount() {
         window.scroll(0, 0);
-        document.title = "Staycation | Checkout";
+        document.title = 'Staycation | Checkout';
     }
 
     render() {
         const { data } = this.state;
-        const { checkout } = this.props;
+        const { checkout, page } = this.props;
 
         if (!checkout) {
-            return <div className="container">
-                <div 
-                    className="row align-item-center justify-content-center text-center"
-                    style={{height: "100hv"}}
-                >
-                    <div className="col-3">
-                        Silahkan Pilih Kamar
-                        <div>
-                            <Button className="btn mt-5" type="link" href="/" isLight>
-                                Back
-                            </Button>
+            return (
+                <div className="container">
+                    <div
+                        className="row align-item-center justify-content-center text-center"
+                        style={{ height: '100hv' }}
+                    >
+                        <div className="col-3">
+                            Silahkan Pilih Kamar
+                            <div>
+                                <Button
+                                    className="btn mt-5"
+                                    type="button"
+                                    onClick={this.props.history.goBack()}
+                                    isLight
+                                >
+                                    Back
+                                </Button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            );
         }
-        
+
         const steps = {
             bookingInformation: {
-                title: "Booking Information",
-                description: "Please fill up the blank fields below",
+                title: 'Booking Information',
+                description: 'Please fill up the blank fields below',
                 content: (
                     <BookingInformation
                         data={data}
                         checkout={checkout}
-                        ItemDetails={ItemDetails}
+                        itemDetails={page[checkout._id]}
                         onChange={this.onChange}
                     />
                 ),
             },
             payment: {
-                title: "Payment",
-                description: "Kindly follow the instructions below",
+                title: 'Payment',
+                description: 'Kindly follow the instructions below',
                 content: (
                     <Payment
                         data={data}
-                        ItemDetails={ItemDetails}
+                        ItemDetails={page[checkout._id]}
                         checkout={checkout}
                         onChange={this.onChange}
                     />
                 ),
             },
             completed: {
-                title: "Yay! Completed",
+                title: 'Yay! Completed',
                 description: null,
                 content: <Completed />,
             },
@@ -109,12 +121,12 @@ class Checkout extends Component {
 
                             <MainContent data={steps} current={CurrentStep} />
 
-                            {CurrentStep === "bookingInformation" && (
+                            {CurrentStep === 'bookingInformation' && (
                                 <Controller>
-                                    {data.firstName !== "" &&
-                                        data.lastName !== "" &&
-                                        data.email !== "" &&
-                                        data.phone !== "" && (
+                                    {data.firstName !== '' &&
+                                        data.lastName !== '' &&
+                                        data.email !== '' &&
+                                        data.phone !== '' && (
                                             <Fade>
                                                 <Button
                                                     className="btn mb-3"
@@ -140,11 +152,11 @@ class Checkout extends Component {
                                 </Controller>
                             )}
 
-                            {CurrentStep === "payment" && (
+                            {CurrentStep === 'payment' && (
                                 <Controller>
-                                    {data.proofPayment !== "" &&
-                                        data.bankName !== "" &&
-                                        data.bankHolder !== "" && (
+                                    {data.proofPayment !== '' &&
+                                        data.bankName !== '' &&
+                                        data.bankHolder !== '' && (
                                             <Fade>
                                                 <Button
                                                     className="btn mb-3"
@@ -170,7 +182,7 @@ class Checkout extends Component {
                                 </Controller>
                             )}
 
-                            {CurrentStep === "completed" && (
+                            {CurrentStep === 'completed' && (
                                 <Controller>
                                     <Button
                                         className="btn"
@@ -194,6 +206,7 @@ class Checkout extends Component {
 
 const mapStateToProps = (state) => ({
     checkout: state.checkout,
-})
+    page: state.page,
+});
 
 export default connect(mapStateToProps)(Checkout);
