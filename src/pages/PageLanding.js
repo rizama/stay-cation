@@ -21,7 +21,7 @@ class PageLanding extends Component {
         window.scrollTo(0, 0);
 
         if (!this.props.page.landingPage)
-            this.props.fetchPage(`${process.env.REACT_APP_HOST}api/v1/member/landingpage`, 'landingPage');
+            this.props.fetchPage(`/landingpage`, 'landingPage');
 
     }
 

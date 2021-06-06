@@ -5,8 +5,8 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import PageLanding from 'pages/PageLanding';
 import DetailPage from 'pages/DetailPage';
 import Checkout from 'pages/Checkout';
-// import ExampleInputDate from 'pages/ExampleInputDate';
-// import ExampleBreadcrumb from 'pages/ExampleBreadcrumb';
+import { ToastContainer } from "react-toastify";
+
 
 function App() {
   return (
@@ -16,6 +16,8 @@ function App() {
         <Route path="/properties/:id" component={DetailPage}></Route>
         <Route path="/checkout" component={Checkout}></Route>
       </Router>
+
+      <ToastContainer></ToastContainer>
     </div>
   );
 }

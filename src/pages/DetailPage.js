@@ -22,7 +22,7 @@ class DetailPage extends Component {
         window.scrollTo(0, 0);
 
         if (!this.props.page[this.props.match.params.id])
-            this.props.fetchPage(`${process.env.REACT_APP_HOST}api/v1/member/detailpage/${this.props.match.params.id}`, this.props.match.params.id);
+            this.props.fetchPage(`/detailpage/${this.props.match.params.id}`, this.props.match.params.id);
     }
 
     render() {
